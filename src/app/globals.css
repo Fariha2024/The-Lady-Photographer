@@ -25,3 +25,22 @@ body {
     text-wrap: balance;
   }
 }
+.social-icon {
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #1da1f2; /* Example hover color */
+}
+
+/* Add this in your styles (globals.css or another CSS file) */
+.self-portrait {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.self-portrait-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional for rounded corners */
+}
