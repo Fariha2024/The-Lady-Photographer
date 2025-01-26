@@ -1,144 +1,27 @@
-/*import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faInstagram, faLinkedinIn, faFacebookF, faPinterest, faYelp } from '@fortawesome/free-brands-svg-icons';*/
-
-
-/*const Footer: React.FC = () => {
-  return (
-    <footer className="bg-gray-800 text-white py-6">
-      <div className="container mx-auto text-center">
-        <div className="footer-content mb-4"
-          <p className="mb-2">Follow Us:</p>
-          <div className="social-links flex justify-center space-x-4">
-            <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="social-icon"
-            >
-              <FontAwesomeIcon icon={faTwitter} />
-            </a>
-            <a 
-              href="https://www.instagram.com/fariha_ahson/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="social-icon"
-            >
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/fariha-nizam-7517b812a/?originalSubdomain=pk" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="social-icon"
-            >
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-            <a 
-              href="https://www.facebook.com/profile.php?id=100039887306734&ref=page_internal" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="social-icon"
-            >
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a 
-              href="https://pinterest.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="social-icon"
-            >
-              <FontAwesomeIcon icon={faPinterest} />
-            </a>
-            <a 
-              href="https://www.yelp.com/biz/spersch-studio-sydney" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="social-icon"
-            >
-              <FontAwesomeIcon icon={faYelp} />
-            </a>
-          </div>
-        </div>
-        <p>
-          © 2000-2024 The Art Story Foundation. All Rights Reserved | 
-          <a href="#" className="text-gray-400 hover:text-white"> Privacy Policy</a> | 
-          <a href="#" className="text-gray-400 hover:text-white"> Sitemap</a>
-        </p>
-      </div>
-    </footer>
-  );
-};
-
-export default Footer;*/
-
-
-
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faInstagram, faLinkedinIn, faFacebookF, faPinterest, faYelp } from '@fortawesome/free-brands-svg-icons';
+import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6">
+    
+    <footer className="bg-zinc-900 text-zinc-50 py-8 px-6">
       <div className="container mx-auto text-center">
-        <div className="footer-content mb-4">
-          <p className="mb-2">Follow Us:</p>
-          <div className="social-links flex justify-center space-x-4">
-            <a 
-              href="https://twitter.com/YOUR_USERNAME" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-white"
-            >
-              <FontAwesomeIcon icon={faTwitter} />
+        {/* Contact Section */}
+        <div className="mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Contact Fariha Nizam</h2>
+          <p className="text-lg">For inquiries, bookings, or collaborations:</p>
+          <p>
+            <a href="mailto:fariha@example.com" className="text-blue-400 hover:underline">
+              fariha@example.com
             </a>
-            <a 
-              href="https://www.instagram.com/fariha_ahson/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-white"
-            >
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/fariha-nizam-7517b812a/?originalSubdomain=pk" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-white"
-            >
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-            <a 
-              href="https://www.facebook.com/profile.php?id=100039887306734&ref=page_internal" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-white"
-            >
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a 
-              href="https://pinterest.com/YOUR_USERNAME/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-white"
-            >
-              <FontAwesomeIcon icon={faPinterest} />
-            </a>
-            <a 
-              href="https://www.yelp.com/biz/spersch-studio-sydney"  
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-gray-400 hover:text-white"
-            >
-              <FontAwesomeIcon icon={faYelp} />
-            </a>
-          </div>
+          </p>
+          <p className="text-blue-400">+92-347-3396122</p>
         </div>
-        <p>
-          © 2000-2024 The Art Story Foundation. All Rights Reserved | 
-          <a href="#" className="text-gray-400 hover:text-white"> Privacy Policy</a> | 
-          <a href="#" className="text-gray-400 hover:text-white"> Sitemap</a>
+
+        {/* Footer Links */}
+        <p className="text-sm">
+          © 2000-2024 The Art Story Foundation. All Rights Reserved |{" "}
+          <a href="#" className="text-gray-400 hover:text-white">Privacy Policy</a> |{" "}
+          <a href="#" className="text-gray-400 hover:text-white">Sitemap</a>
         </p>
       </div>
     </footer>
@@ -146,4 +29,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
-
