@@ -625,9 +625,9 @@ export default async function BlogArticle({params}:{params:{slug:string}}){
 */}
 
 
-//src/app/blog/[slug]/page.tsx
+//src/app/blog/[slug]/page.tsx origionalllll
 
-import { FullBlog, Category } from "@/app/lib/interface";
+{/*import { FullBlog }  from "@/app/lib/interface";//Category
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
@@ -651,7 +651,7 @@ console.log("Fetched Data:", data);{
     <div>
       <h1 className="mb-6 font-seibold">{data.title}</h1>
 
-      {/* Displaying the main image if it exists */}
+      {/* Displaying the main image if it exists *
       {data.mainImage?.asset?.url && (
         <div>
           <Image 
@@ -663,7 +663,7 @@ console.log("Fetched Data:", data);{
         </div>
       )}
 
-      {/* Rendering the body content using PortableText */}
+      {/* Rendering the body content using PortableText *
       <section className="mt-16">
         {data.body ? (
           <PortableText value={data.body} />
@@ -672,12 +672,12 @@ console.log("Fetched Data:", data);{
         )}
       </section>
 
-   {/* Author Info */}
+   {/* Author Info *
    {data.author && (
         <div className="author-info mt-8">
           <h3>About the Author: {data.author.name}</h3>
 
-          {/* Rendering author's bio with PortableText */}
+          {/* Rendering author's bio with PortableText *
           <div className="author-bio">
             {data.author.bio ? (
               <PortableText value={data.author.bio} />
@@ -700,6 +700,7 @@ console.log("Fetched Data:", data);{
     </div>
   )};
 }
+*/}
   {/* Displaying the author info *
       <div className="author-info mt-8">
         <h3>About the Author: {data.author.name}</h3>
@@ -729,6 +730,233 @@ console.log("Fetched Data:", data);{
 }*/}
 
 
+//origionalllllllllll
+{/*import { FullBlog } from "@/app/lib/interface"; // Category
+
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { getdata } from "@/app/lib/getData"; // Import the getdata function to fetch the data
+
+export const revalidate = 60;
+
+export default async function BlogArticle({ params }: { params: { slug: string } }) {
+  // Fetching data dynamically based on the slug parameter
+  const data: FullBlog = await getdata(params.slug);
+
+  // Log the fetched data to inspect its structure
+  console.log("Fetched Data:", data);
+
+  // If no data is found, show a 'Blog not found' message
+  if (!data) {
+    return <div>Blog not found</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+
+      {/* Displaying the main image if it exists *
+      {data.mainImage?.asset?.url ? (
+        <div>
+          <Image 
+            src={data.mainImage.asset.url} 
+            alt={data.mainImage.alt || data.title} 
+            width={800} 
+            height={400} 
+          />
+        </div>
+      ) : null}
+
+      {/* Rendering the body content using PortableText *
+      <section className="mt-16">
+        {data.body ? (
+          <PortableText value={data.body} />
+        ) : (
+          <p>No content available</p>
+        )}
+      </section>
+
+      {/* Author Info *
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
+
+          {/* Rendering author's bio with PortableText *
+          <div className="author-bio">
+            {data.author.bio ? (
+              <PortableText value={data.author.bio} />
+            ) : (
+              <p>No biography available</p>
+            )}
+          </div>
+
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}*/}////////////origional//////////
 
 
 
+{/*import { FullBlog } from "@/app/lib/interface";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { getdata } from "@/app/lib/getData";
+'import PageProps from "next"'
+export const revalidate = 60;
+
+export default async function BlogArticle({ params }: PageProps<{ slug: string }>) {
+  // Fetching data dynamically based on the slug parameter
+  const data: FullBlog = await getdata(params.slug);
+
+  // Log the fetched data to inspect its structure
+  console.log("Fetched Data:", data);
+
+  // If no data is found, show a 'Blog not found' message
+  if (!data) {
+    return <div>Blog not found</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+
+      {/* Displaying the main image if it exists *
+      {data.mainImage?.asset?.url ? (
+        <div>
+          <Image 
+            src={data.mainImage.asset.url} 
+            alt={data.mainImage.alt || data.title} 
+            width={800} 
+            height={400} 
+          />
+        </div>
+      ) : null}
+
+      {/* Rendering the body content using PortableText *
+      <section className="mt-16">
+        {data.body ? (
+          <PortableText value={data.body} />
+        ) : (
+          <p>No content available</p>
+        )}
+      </section>
+
+      {/* Author Info *
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
+
+          {/* Rendering author's bio with PortableText *
+          <div className="author-bio">
+            {data.author.bio ? (
+              <PortableText value={data.author.bio} />
+            ) : (
+              <p>No biography available</p>
+            )}
+          </div>
+
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}*/}
+
+
+
+
+
+import { FullBlog } from "@/app/lib/interface";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { getdata } from "@/app/lib/getData";
+
+// Revalidate time for ISR (Incremental Static Regeneration)
+export const revalidate = 60;
+
+// Define the type for Next.js dynamic route props
+interface BlogArticleProps {
+  params: { slug: string };
+}
+
+export default async function BlogArticle({ params }: BlogArticleProps) {
+  // Fetching data dynamically based on the slug parameter
+  const data: FullBlog = await getdata(params.slug);
+
+  console.log("Fetched Data:", data);
+
+  if (!data) {
+    return <div>Blog not found</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+
+      {/* Displaying the main image if it exists */}
+      {data.mainImage?.asset?.url && (
+        <div>
+          <Image 
+            src={data.mainImage.asset.url} 
+            alt={data.mainImage.alt || data.title} 
+            width={800} 
+            height={400} 
+          />
+        </div>
+      )}
+
+      {/* Rendering the body content using PortableText */}
+      <section className="mt-16">
+        {data.body ? (
+          <PortableText value={data.body} />
+        ) : (
+          <p>No content available</p>
+        )}
+      </section>
+
+      {/* Author Info */}
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
+
+          {/* Rendering author's bio with PortableText */}
+          <div className="author-bio">
+            {data.author.bio ? (
+              <PortableText value={data.author.bio} />
+            ) : (
+              <p>No biography available</p>
+            )}
+          </div>
+
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

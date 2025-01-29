@@ -37,7 +37,7 @@ export async function getdata(slug: string) {
   return data;
 
 
-};
+}
 
 
 

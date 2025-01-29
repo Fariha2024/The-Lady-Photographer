@@ -1,4 +1,4 @@
-{/*// src/app/page.tsx
+// src/app/page.tsx
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link component
@@ -30,7 +30,7 @@ const ContactPage: React.FC = () => {
   </p>
 </section>
 
-   {/* Link to Blog List *
+   {/* Link to Blog List */}
    <div className="text-center mt-0 mb-[-8]">
           <Link href="/blog" className="text-xl font-semibold text-blue-500">Go to Blog
           </Link>
@@ -42,4 +42,4 @@ const ContactPage: React.FC = () => {
   );
 };
 
-export default ContactPage;*/} //working contact page
+export default ContactPage;

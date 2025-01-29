@@ -346,23 +346,23 @@ export default async function Home() {
   {/* Additional Section */}
   <div className="mt-10 p-6">
     <h1 className="text-3xl font-bold text-center">
-      Introduction to Fariha's Social Media Ad Agency: "The Art of Life Within the Art"
+      Introduction to Farihas Social Media Ad Agency: The Art of Life Within the Art
     </h1>
     <p className="mt-4 text-center text-2xl leading-relaxed">
       Welcome to <strong>The Art of Life Within the Art</strong>, a social media ad agency founded by Fariha, 
-      where creativity meets strategy to transform your brand's presence in the digital world. At the core of our 
-      agency is a deep passion for the arts, a commitment to showcasing talent, and a vision to bring every artist's 
+      where creativity meets strategy to transform your brands presence in the digital world. At the core of our 
+      agency is a deep passion for the arts, a commitment to showcasing talent, and a vision to bring every artists 
       work to the forefront of social media platforms.
       <br />
       <br />
       We believe that the beauty of life lies in the art we create, and we strive to amplify that art through powerful, 
-      impactful social media campaigns that resonate with your audience. Whether you're an emerging artist, a photographer, 
+      impactful social media campaigns that resonate with your audience. Whether youre an emerging artist, a photographer, 
       a painter, or someone in the creative industry, our agency helps you carve your niche in the digital space.
       <br />
       <br />
       Our services are designed to curate and elevate your online identity by blending visual storytelling with targeted 
-      advertising strategies, ensuring your art is not just seen, but celebrated. <em>"The Art of Life Within the Art"</em> 
-      is more than a name—it's our philosophy: to connect your life's work with the world in the most dynamic, engaging way.
+      advertising strategies, ensuring your art is not just seen, but celebrated. The Art of Life Within the Art
+      is more than a name—its our philosophy: to connect your lifes work with the world in the most dynamic, engaging way.
       <br />
       <br />
       Let us help you tell your story, showcase your art, and make your presence known. Through our innovative approach, 
@@ -375,7 +375,7 @@ export default async function Home() {
       <h3 className="text-2xl font-semibold text-center mt-4">Creative Minds Create Thinking</h3>
       <p className="mt-4 text-center text-xl leading-relaxed">
         In a world where innovation drives progress, creative minds stand at the forefront, constantly pushing boundaries 
-        and redefining what's possible. These individuals possess an innate ability to think beyond conventional norms, 
+        and redefining whats possible. These individuals possess an innate ability to think beyond conventional norms, 
         transforming ordinary ideas into extraordinary ones.
         <br />
         <br />
