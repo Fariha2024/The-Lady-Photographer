@@ -65,7 +65,7 @@ const ContactPage: React.FC = () => {
         fashion shoots, and event photography, blending technical expertise with a unique artistic vision. 
         Her work not only tells stories but also reflects an innate understanding of light, composition, and emotion, 
         making her one of the most sought after photographers in the industry. 
-        Fariha's passion for photography, coupled with her keen eye for detail, allows her to produce images that 
+        Farihas passion for photography, coupled with her keen eye for detail, allows her to produce images that 
         are both captivating and meaningful, setting her apart as a true master of her craft.
       </p>
 

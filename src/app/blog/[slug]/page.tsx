@@ -884,7 +884,7 @@ export default async function BlogArticle({ params }: PageProps<{ slug: string }
 
 
 //origional////////workable
-{/*import { FullBlog } from "@/app/lib/interface";
+import { FullBlog } from "@/app/lib/interface";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { getdata } from "@/app/lib/getData";
@@ -911,7 +911,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
     <div>
       <h1 className="mb-6 font-semibold">{data.title}</h1>
 
-      {/* Displaying the main image if it exists *
+      {/* Displaying the main image if it exists */}
       {data.mainImage?.asset?.url && (
         <div>
           <Image 
@@ -923,7 +923,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
         </div>
       )}
 
-      {/* Rendering the body content using PortableText *
+      {/* Rendering the body content using PortableText */}
       <section className="mt-16">
         {data.body ? (
           <PortableText value={data.body} />
@@ -932,12 +932,12 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
         )}
       </section>
 
-      {/* Author Info *
+      {/* Author Info */}
       {data.author && (
         <div className="author-info mt-8">
           <h3>About the Author: {data.author.name}</h3>
 
-          {/* Rendering author's bio with PortableText *
+          {/* Rendering author's bio with PortableText */}
           <div className="author-bio">
             {data.author.bio ? (
               <PortableText value={data.author.bio} />
@@ -960,13 +960,13 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
     </div>
   );
 }
-*/}//origional////////
+//origional////////
 
 
 
 
 //responsive
-
+{/*
 import { FullBlog } from "@/app/lib/interface";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
@@ -988,10 +988,10 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
 
   return (
     <div className="bg-white text-black p-4 sm:p-6 md:p-8 lg:p-10">
-      {/* Blog Title */}
+      {/* Blog Title *
       <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6">{data.title}</h1>
 
-      {/* Blog Image (Responsive) */}
+      {/* Blog Image (Responsive) *
       {data.mainImage?.asset?.url && (
         <div className="w-full flex justify-center">
           <Image 
@@ -1004,12 +1004,12 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
         </div>
       )}
 
-      {/* Blog Content */}
+      {/* Blog Content *
       <section className="mt-6 text-base sm:text-lg md:text-xl leading-relaxed">
         {data.body ? <PortableText value={data.body} /> : <p>No content available</p>}
       </section>
 
-      {/* Author Info */}
+      {/* Author Info *
       {data.author && (
         <div className="author-info mt-8 p-4 bg-gray-100 rounded-lg">
           <h3 className="text-lg sm:text-xl font-semibold">About the Author: {data.author.name}</h3>
@@ -1033,4 +1033,4 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
       )}
     </div>
   );
-}
+}*/}
