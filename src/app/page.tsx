@@ -296,7 +296,7 @@ export default async function Home() {
 
 import { urlFor } from '@/sanity/lib/image';
 import { client } from '../sanity/lib/client'; // Adjust your import path
-import { simpleBlogCard } from './lib/interface';
+//import { simpleBlogCard } from './lib/interface';
 import Image from 'next/image';
 import { Card, CardContent } from './components/card';
 import Link from 'next/link';

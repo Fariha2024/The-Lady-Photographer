@@ -1,7 +1,7 @@
 
 
 //src/app/lib/interface.tsx
-
+{/*
 export interface simpleBlogCard{
 
 
@@ -19,7 +19,7 @@ export interface simpleBlogCard{
     }
     description: string;
   }
-}
+}*/}
 {/*export interface fullBlog{
   title: string;
   body: any;
@@ -78,36 +78,43 @@ export interface FullBlog {
 
 import { PortableTextBlock } from "@portabletext/types";
 
-export interface Category {
-  title: string;
-  slug: {
-    current: string;
-  };
-  description: string;
-}
-
-export interface Author {
-  name: string;
-  slug: {
-    current: string;
-  };
-  image: MainImage; // Should be an object, not a string
-  bio: PortableTextBlock[]; // To properly handle PortableText content
-}
-
 export interface MainImage {
-  alt?: string; // Optional, so `string | undefined` is unnecessary
+  alt?: string;
   asset: {
     url: string;
   };
 }
 
+export interface Author {
+  name: string;
+  bio?: PortableTextBlock[];
+  image?: MainImage;
+}
+
 export interface FullBlog {
   title: string;
-  body: PortableTextBlock[]; // Should match PortableText structure
   slug: string;
-  author: Author;
-  publishedAt: string;
-  mainImage: MainImage;
-  categories: Category[]; // Assuming it's an array of categories
+  body: PortableTextBlock[];
+  mainImage?: MainImage;
+  author?: Author;
+  publishedAt?: string;
+}
+
+export interface simpleBlogCard{
+
+
+
+  _id: string;
+  title: string;
+  
+  slug: { current: string }; // Ensure slug is defined as an object with current property
+ 
+  
+  mainImage: {
+    alt: string;
+    asset: {
+      url: string;
+    }
+    description: string;
+  }
 }
