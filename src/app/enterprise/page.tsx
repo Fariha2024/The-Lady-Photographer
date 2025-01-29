@@ -118,8 +118,8 @@ const EnterprisePage: React.FC = () => {
 export default EnterprisePage;*/}
 
 
-
-import React from 'react';
+///origional//////
+{/*import React from 'react';
 import Image from 'next/image';
 
 const ServiceCard: React.FC<{ title: string; description: string; imgSrc: string; imgAlt: string }> = ({ title, description, imgSrc, imgAlt }) => (
@@ -136,20 +136,20 @@ const EnterprisePage: React.FC = () => {
       title: 'Corporate Event Photography',
       description:
         'Capture the essence of your corporate events, conferences, and gatherings with our professional event photography services. We ensure every moment is beautifully documented.',
-      imgSrc: '/blog-sociall.jpg',
+      imgSrc: '/image5.jpg',
       imgAlt: 'Corporate Event Photography',
     },
     {
       title: 'Commercial Photography',
       description:
-        'Our commercial photography services are designed to highlight your products and services in the best light. Whether it’s for marketing, e-commerce, or branding, we’ve got you covered.',
+        'Our commercial photography services are designed to highlight your products and services in the best light. Whether its for marketing, e-commerce, or branding, weve got you covered.',
       imgSrc: '/port14.jpg',
       imgAlt: 'Commercial Photography',
     },
     {
       title: 'Branding Photography',
       description:
-        'Let us help define your brand’s story through visually striking photography that resonates with your target audience. Our branding services are customized to align with your vision and goals.',
+        'Let us help define your brands story through visually striking photography that resonates with your target audience. Our branding services are customized to align with your vision and goals.',
       imgSrc: '/port3.jpg',
       imgAlt: 'Branding Photography',
     },
@@ -176,6 +176,89 @@ const EnterprisePage: React.FC = () => {
         ))}
       </section>
 
+      <section className="py-16 bg-zinc-50 mt-16">
+        <h2 className="text-3xl font-semibold text-center text-zinc-950 mb-6">
+          Why Choose Us?
+        </h2>
+        <p className="text-lg text-zinc-700 mb-6 text-center max-w-3xl mx-auto">
+          At Fariha Nizam Photography, we combine creative vision with technical expertise. Our team has years of experience working with enterprise clients, capturing high-quality images for commercial use, marketing, and branding. We prioritize quality, professionalism, and attention to detail in every project, ensuring that your business stands out.
+        </p>
+      </section>
+    </div>
+  );
+};
+
+export default EnterprisePage;*/}///origional //////
+
+
+
+
+
+
+//////responsive
+
+import React from 'react';
+import Image from 'next/image';
+
+const ServiceCard: React.FC<{ title: string; description: string; imgSrc: string; imgAlt: string }> = ({ title, description, imgSrc, imgAlt }) => (
+  <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+    <Image src={imgSrc} alt={imgAlt} width={500} height={300} className="rounded-md mb-4 w-full h-auto" />
+    <h3 className="text-2xl font-semibold text-zinc-950 mb-2">{title}</h3>
+    <p className="text-zinc-600">{description}</p>
+  </div>
+);
+
+const EnterprisePage: React.FC = () => {
+  const services = [
+    {
+      title: 'Corporate Event Photography',
+      description:
+        'Capture the essence of your corporate events, conferences, and gatherings with our professional event photography services. We ensure every moment is beautifully documented.',
+      imgSrc: '/image5.jpg',
+      imgAlt: 'Corporate Event Photography',
+    },
+    {
+      title: 'Commercial Photography',
+      description:
+        'Our commercial photography services are designed to highlight your products and services in the best light. Whether its for marketing, e-commerce, or branding, weve got you covered.',
+      imgSrc: '/port14.jpg',
+      imgAlt: 'Commercial Photography',
+    },
+    {
+      title: 'Branding Photography',
+      description:
+        'Let us help define your brands story through visually striking photography that resonates with your target audience. Our branding services are customized to align with your vision and goals.',
+      imgSrc: '/port3.jpg',
+      imgAlt: 'Branding Photography',
+    },
+  ];
+
+  return (
+    <div className="container mx-auto py-16 px-6">
+      {/* Heading */}
+      <h1 className="text-4xl font-bold text-center mb-8 text-zinc-950">
+        Enterprise Photography Services
+      </h1>
+
+      {/* Description */}
+      <p className="text-lg text-zinc-700 mb-12 text-center">
+        At Fariha Nizam Photography, we offer enterprise-level photography services tailored to the needs of businesses, corporations, and events. With our expert team and high-end equipment, we bring your vision to life with creativity and precision.
+      </p>
+
+      {/* Service Cards */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+        {services.map((service, index) => (
+          <ServiceCard
+            key={index}
+            title={service.title}
+            description={service.description}
+            imgSrc={service.imgSrc}
+            imgAlt={service.imgAlt}
+          />
+        ))}
+      </section>
+
+      {/* Why Choose Us Section */}
       <section className="py-16 bg-zinc-50 mt-16">
         <h2 className="text-3xl font-semibold text-center text-zinc-950 mb-6">
           Why Choose Us?
