@@ -884,7 +884,7 @@ export default async function BlogArticle({ params }: PageProps<{ slug: string }
 
 
 //origional////////workable
-import { FullBlog } from "@/app/lib/interface";
+{/*import { FullBlog } from "@/app/lib/interface";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { getdata } from "@/app/lib/getData";
@@ -894,7 +894,7 @@ export const revalidate = 60;
 
 // Define the type for Next.js dynamic route props
 interface BlogArticleProps {
-  params: { slug: string };
+  params:  '{ slug: string; }'   // { slug: string };
 }
 
 export default async function BlogArticle({ params }: BlogArticleProps) {
@@ -911,7 +911,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
     <div>
       <h1 className="mb-6 font-semibold">{data.title}</h1>
 
-      {/* Displaying the main image if it exists */}
+      {/* Displaying the main image if it exists *
       {data.mainImage?.asset?.url && (
         <div>
           <Image 
@@ -923,7 +923,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
         </div>
       )}
 
-      {/* Rendering the body content using PortableText */}
+      {/* Rendering the body content using PortableText *
       <section className="mt-16">
         {data.body ? (
           <PortableText value={data.body} />
@@ -932,12 +932,12 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
         )}
       </section>
 
-      {/* Author Info */}
+      {/* Author Info *
       {data.author && (
         <div className="author-info mt-8">
           <h3>About the Author: {data.author.name}</h3>
 
-          {/* Rendering author's bio with PortableText */}
+          {/* Rendering author's bio with PortableText *
           <div className="author-bio">
             {data.author.bio ? (
               <PortableText value={data.author.bio} />
@@ -959,7 +959,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
       )}
     </div>
   );
-}
+}*/}
 //origional////////
 
 
@@ -1034,3 +1034,85 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
     </div>
   );
 }*/}
+
+
+import { FullBlog } from "@/app/lib/interface";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { getdata } from "@/app/lib/getData";
+
+// Revalidate time for ISR (Incremental Static Regeneration)
+export const revalidate = 60;
+
+// Define the type for Next.js dynamic route props
+type BlogArticleProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function BlogArticle({ params }: BlogArticleProps) {
+  const { slug } = params;
+
+  // Fetching data dynamically based on the slug parameter
+  const data: FullBlog = await getdata(slug);
+
+  console.log("Fetched Data:", data);
+
+  if (!data) {
+    return <div>Blog not found</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+
+      {/* Displaying the main image if it exists */}
+      {data.mainImage?.asset?.url && (
+        <div>
+          <Image
+            src={data.mainImage.asset.url}
+            alt={data.mainImage.alt || data.title}
+            width={800}
+            height={400}
+          />
+        </div>
+      )}
+
+      {/* Rendering the body content using PortableText */}
+      <section className="mt-16">
+        {data.body ? (
+          <PortableText value={data.body} />
+        ) : (
+          <p>No content available</p>
+        )}
+      </section>
+
+      {/* Author Info */}
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
+
+          {/* Rendering author's bio with PortableText */}
+          <div className="author-bio">
+            {data.author.bio ? (
+              <PortableText value={data.author.bio} />
+            ) : (
+              <p>No biography available</p>
+            )}
+          </div>
+
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
