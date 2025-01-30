@@ -152,7 +152,7 @@ export interface FullBlog {
 export interface FullBlog {
   title: string;
   slug: { current: string };
-  body: any[]; // Adjust based on your PortableText structure
+  body: ' blockContent'; // Adjust based on your PortableText structure
   mainImage: {
     asset: {
       url: string;
