@@ -74,7 +74,7 @@ export interface FullBlog {
 
 
 
-
+{/*origional
 
 import { PortableTextBlock } from "@portabletext/types";
 
@@ -117,4 +117,31 @@ export interface simpleBlogCard{
     }
     description: string;
   }
+}*/}
+
+
+
+
+import { PortableTextBlock } from "@portabletext/types";
+
+export interface MainImage {
+  alt?: string;
+  asset: {
+    url: string;
+  };
+}
+
+export interface Author {
+  name: string;
+  bio?: PortableTextBlock[];
+  image?: MainImage;
+}
+
+export interface FullBlog {
+  title: string;
+  slug: string;
+  body: PortableTextBlock[];
+  mainImage?: MainImage;
+  author?: Author;
+  publishedAt?: string;
 }
