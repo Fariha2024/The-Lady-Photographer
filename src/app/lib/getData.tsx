@@ -109,3 +109,6 @@ export async function getdata(slug: string): Promise<FullBlog> {
   const data = await client.fetch(query, { slug });
   return data;
 }
+
+
+

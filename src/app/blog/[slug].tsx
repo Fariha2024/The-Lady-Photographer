@@ -387,35 +387,3 @@ const BlogEditor = () => {
 
 export default BlogEditor;*/
 
-
-
-
-
-{/*import { useEffect } from 'react';
-import { client } from '../../sanity/lib/client'; // Ensure the correct path to your Sanity client
-
-const BlogPage = () => {
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch posts from Sanity
-        const posts = await client.fetch('*[_type == "post"]');
-        console.log(posts); // This will log the posts in the browser's console
-      } catch (error) {
-        console.error('Error fetching data:', error); // This will log any errors
-      }
-    };
-
-    fetchData(); // Call the function to fetch data
-  }, []); // Empty dependency array means this runs once when the component mounts
-
-  return (
-    <div>
-      <h1>Blog Page</h1>
-      {/* You can also render the fetched posts here if needed *
-    </div>
-  );
-};
-
-export default BlogPage;*/}
-

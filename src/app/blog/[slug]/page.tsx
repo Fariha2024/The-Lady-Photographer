@@ -1123,7 +1123,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
 
 
 
-
+{/*theek hai
 import { FullBlog } from "../../lib/interface";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
@@ -1155,7 +1155,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
     <div>
       <h1 className="mb-6 font-semibold">{data.title}</h1>
 
-      {/* Displaying the main image if it exists */}
+      {/* Displaying the main image if it exists *
       {data.mainImage?.asset?.url && (
         <div>
           <Image
@@ -1167,7 +1167,7 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
         </div>
       )}
 
-      {/* Rendering the body content using PortableText */}
+      {/* Rendering the body content using PortableText *
       <section className="mt-16">
         {data.body ? (
           <PortableText value={data.body} />
@@ -1176,12 +1176,89 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
         )}
       </section>
 
-      {/* Author Info */}
+      {/* Author Info *
       {data.author && (
         <div className="author-info mt-8">
           <h3>About the Author: {data.author.name}</h3>
 
-          {/* Rendering author's bio with PortableText */}
+          {/* Rendering author's bio with PortableText *
+          <div className="author-bio">
+            {data.author.bio ? (
+              <PortableText value={data.author.bio} />
+            ) : (
+              <p>No biography available</p>
+            )}
+          </div>
+
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}*/}//theek hai
+
+
+
+
+
+{/*
+
+import { FullBlog } from "@/app/lib/interface";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { getdata } from "@/app/lib/getData";
+
+export const revalidate = 60;
+
+type BlogArticleProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function BlogArticle({ params }: BlogArticleProps) {
+  const { slug } = params;
+  const data: FullBlog = await getdata(slug);
+
+  if (!data) {
+    return <div>Blog not found</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+
+      {data.mainImage?.asset?.url && (
+        <div>
+          <Image
+            src={data.mainImage.asset.url}
+            alt={data.mainImage.alt || data.title}
+            width={800}
+            height={400}
+            priority // Add priority for above-the-fold images
+          />
+        </div>
+      )}
+
+      <section className="mt-16">
+        {data.body ? (
+          <PortableText value={data.body} />
+        ) : (
+          <p>No content available</p>
+        )}
+      </section>
+
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
           <div className="author-bio">
             {data.author.bio ? (
               <PortableText value={data.author.bio} />
@@ -1204,3 +1281,190 @@ export default async function BlogArticle({ params }: BlogArticleProps) {
     </div>
   );
 }
+*/}
+
+
+
+
+{/*}
+import { FullBlog } from "@/app/lib/interface";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { getdata } from "@/app/lib/getData";
+
+
+export default async function BlogArticle({ params }: 
+  
+  
+  
+  BlogArticleProps) {
+  const { slug } = params;
+  const data = await getdata(slug);
+
+  // Handle the case where data is null
+  if (!data) {
+    return <div>Blog not found or failed to load.</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+
+      {data.mainImage?.asset?.url && (
+        <div>
+          <Image
+            src={data.mainImage.asset.url}
+            alt={data.mainImage.alt || data.title}
+            width={800}
+            height={400}
+            priority
+          />
+        </div>
+      )}
+
+      <section className="mt-16">
+        {data.body ? (
+          <PortableText value={data.body} />
+        ) : (
+          <p>No content available</p>
+        )}
+      </section>
+
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
+          <div className="author-bio">
+            {data.author.bio ? (
+              <PortableText value={data.author.bio} />
+            ) : (
+              <p>No biography available</p>
+            )}
+          </div>
+
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}    */}
+
+
+
+import { GetStaticPropsContext, GetStaticPathsResult } from 'next';
+import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
+
+type BlogArticleProps = {
+  params: {
+    slug: string;
+  };
+};
+
+type BlogData = {
+  title: string;
+  mainImage?: {
+    asset: {
+      url: string;
+    };
+    alt?: string;
+  };
+  body?: any;
+  author?: {
+    name: string;
+    bio?: any;
+    image?: {
+      asset: {
+        url: string;
+      };
+    };
+  };
+};
+
+async function getdata(slug: string): Promise<BlogData | null> {
+  // Replace with your data-fetching logic
+  return fetch(`/api/blog/${slug}`).then((res) => res.json());
+}
+
+async function fetchSlugs(): Promise<string[]> {
+  // Replace this with your actual data-fetching logic
+  return ['post-1', 'post-2', 'post-3',' post-4']; // Example hardcoded slugs
+}
+
+export default async function BlogArticle({ params }: BlogArticleProps) {
+  const { slug } = params;
+  const data = await getdata(slug);
+
+  if (!data) {
+    return <div>Blog not found or failed to load.</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+      {data.mainImage?.asset?.url && (
+        <div>
+          <Image
+            src={data.mainImage.asset.url}
+            alt={data.mainImage.alt || data.title}
+            width={800}
+            height={400}
+            priority
+          />
+        </div>
+      )}
+      <section className="mt-16">
+        {data.body ? (
+          <PortableText value={data.body} />
+        ) : (
+          <p>No content available</p>
+        )}
+      </section>
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
+          <div className="author-bio">
+            {data.author.bio ? (
+              <PortableText value={data.author.bio} />
+            ) : (
+              <p>No biography available</p>
+            )}
+          </div>
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  // Fetch all possible slugs
+  const slugs = await fetchSlugs(); // Use the fetchSlugs function
+  const paths = slugs.map((slug) => ({
+    params: { slug },
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking', // or 'true' or 'false'
+  };
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const { params } = context;
+  const slug = params?.slug as string}

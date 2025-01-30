@@ -1,7 +1,7 @@
 
 
 //src/app/lib/interface.tsx
-{/*
+
 export interface simpleBlogCard{
 
 
@@ -19,7 +19,7 @@ export interface simpleBlogCard{
     }
     description: string;
   }
-}*/}
+}
 {/*export interface fullBlog{
   title: string;
   body: any;
@@ -136,7 +136,7 @@ export interface Author {
   bio?: PortableTextBlock[];
   image?: MainImage;
 }
-
+{/*}
 export interface FullBlog {
   title: string;
   slug: string;
@@ -145,3 +145,36 @@ export interface FullBlog {
   author?: Author;
   publishedAt?: string;
 }
+*/}
+
+
+
+export interface FullBlog {
+  title: string;
+  slug: { current: string };
+  body: any[]; // Adjust based on your PortableText structure
+  mainImage: {
+    asset: {
+      url: string;
+    };
+    alt: string;
+  } | null;
+  author: {
+    name: string;
+    bio: any[]; // Adjust based on your PortableText structure
+    image: {
+      asset: {
+        url: string;
+      };
+      alt: string;
+    } | null;
+  } | null;
+  publishedAt: string;
+}
+
+
+type BlogArticleProps = {
+  params: {
+    slug: string;
+  };
+};
