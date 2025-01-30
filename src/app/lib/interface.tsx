@@ -172,9 +172,3 @@ export interface FullBlog {
   publishedAt: string;
 }
 
-
-type BlogArticleProps = {
-  params: {
-    slug: string;
-  };
-};

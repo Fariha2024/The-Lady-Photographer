@@ -1357,7 +1357,7 @@ export default async function BlogArticle({ params }:
 }    */}
 
 
-
+{/*good
 import { GetStaticPropsContext, GetStaticPathsResult } from 'next';
 import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
@@ -1467,4 +1467,75 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const { params } = context;
-  const slug = params?.slug as string}
+  const slug = params?.slug as string}*/}
+
+
+
+
+
+
+
+  import Image from 'next/image';
+import { PortableText } from '@portabletext/react';
+
+// Fetch individual blog data
+async function getData(slug: string) {
+  const res = await fetch(`https://your-sanity-api.com/blog/${slug}`);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+// Fetch all possible blog slugs
+export async function generateStaticParams() {
+  const res = await fetch('https://your-sanity-api.com/blog/slugs');
+  const slugs = await res.json();
+
+  return slugs.map((slug: string) => ({
+    slug,
+  }));
+}
+
+export default async function BlogArticle({ params }: { params: { slug: string } }) {
+  const data = await getData(params.slug);
+
+  if (!data) {
+    return <div>Blog not found or failed to load.</div>;
+  }
+
+  return (
+    <div>
+      <h1 className="mb-6 font-semibold">{data.title}</h1>
+      {data.mainImage?.asset?.url && (
+        <div>
+          <Image
+            src={data.mainImage.asset.url}
+            alt={data.mainImage.alt || data.title}
+            width={800}
+            height={400}
+            priority
+          />
+        </div>
+      )}
+      <section className="mt-16">
+        {data.body ? <PortableText value={data.body} /> : <p>No content available</p>}
+      </section>
+      {data.author && (
+        <div className="author-info mt-8">
+          <h3>About the Author: {data.author.name}</h3>
+          <div className="author-bio">
+            {data.author.bio ? <PortableText value={data.author.bio} /> : <p>No biography available</p>}
+          </div>
+          {data.author.image?.asset?.url && (
+            <Image
+              src={data.author.image.asset.url}
+              alt={data.author.name}
+              width={100}
+              height={100}
+              className="rounded-full mt-6"
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
