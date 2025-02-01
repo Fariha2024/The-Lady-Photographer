@@ -1473,7 +1473,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 
 
-
+{/*
 
   import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
@@ -1538,4 +1538,52 @@ export default async function BlogArticle({ params }: { params: { slug: string }
       )}
     </div>
   );
+}*/}
+
+
+
+
+
+
+
+
+
+
+
+
+//src/app/blog/[slug]/page.tsx
+
+async function getData(slug: string) {
+  try {
+    const res = await fetch(`https://your-sanity-api.com/blog/${slug}`, {
+      next: { revalidate: 60 }, // Enable ISR
+    });
+
+    if (!res.ok) {
+      console.error("Failed to fetch data:", res.status);
+      return null;
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return null;
+  }
+}
+
+export async function generateStaticParams() {
+  try {
+    const res = await fetch('https://your-sanity-api.com/blog/slugs');
+
+    if (!res.ok) throw new Error("Failed to fetch slugs");
+
+    const slugs = await res.json();
+
+    return slugs.map((slug: string) => ({
+      params: { slug }, // ✅ Correct structure
+    }));
+  } catch (error) {
+    console.error("Error fetching slugs:", error);
+    return [];
+  }
 }

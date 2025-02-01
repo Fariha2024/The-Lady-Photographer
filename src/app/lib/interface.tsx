@@ -121,7 +121,7 @@ export interface simpleBlogCard{
 
 
 
-
+//src/app/lib/interface.tsx
 import { PortableTextBlock } from "@portabletext/types";
 
 export interface MainImage {

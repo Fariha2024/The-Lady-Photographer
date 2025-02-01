@@ -77,7 +77,7 @@ export async function getdata(slug: string): Promise< FullBlog> {
 */}
 
 
-
+//src/app/lib/getData.tsx
 
 import { client } from "@/sanity/lib/client";
 import  {FullBlog } from "../lib/interface";
